@@ -5,36 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding Quiz Challenge</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Coding Quiz Challenge</h1>
-            <div id="timer">Time: <span id="time">0</span></div>
-        </header>
-        <section id="quiz-section">
-            <div id="question-container" class="hide">
-                <div id="question">Question</div>
-                <div id="answer-buttons" class="btn-grid">
-                    <!-- Answer buttons will be generated here -->
-                </div>
-            </div>
-            <div class="controls">
-                <button id="start-btn">Start Quiz</button>
-                <button id="next-btn" class="hide">Next</button>
-            </div>
-        </section>
-        <section id="highscore-section" class="hide">
-            <h2>Your Score: <span id="final-score"></span></h2>
-            <form id="highscore-form">
-                <input type="text" id="initials" placeholder="Enter initials">
-                <button type="submit">Submit</button>
-            </form>
-        </section>
+    <div id="quiz-container">
+        <div id="highscores-link">
+            <a href="#" id="highscores">View Highscores</a>
+            <span id="timer">Time: <span id="time-left">0</span></span>
+        </div>
+        <h1>Coding Quiz Challenge</h1>
+        <div id="quiz-intro">
+            <p>Try to answer the following JavaScript-related questions within the time limit.</p>
+            <p>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <button id="start-btn">Start Quiz</button>
+        </div>
+        <div id="question-container" class="hide"></div>
+        <div id="feedback-container" class="feedback hide"></div>
+        <div id="end-screen" class="hide">
+            <h2>Your final score is <span id="final-score"></span>.</h2>
+            <input type="text" id="initials" placeholder="Enter initials" maxlength="3">
+            <button id="submit-score">Submit</button>
+
+        </div>
+        <div id="highscores-container" class="hide">
+            <h2>Highscores</h2>
+            <ul id="highscore-list"></ul>
+            <button id="clear-highscores">Clear highscores</button>
+            <button id="restart-game">Restart Game</button>
+
+        </div>
     </div>
-    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+    <script src="/script.js"></script>
 </body>
 
 </html>

@@ -1,88 +1,148 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+/* CSS Variables for easy theme management */
+:root {
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --container-bg-color: #fff;
+    --primary-color: #28a745;
+    /* Vibrant Green */
+    --primary-hover-color: #218838;
+    --secondary-bg-color: #ffdf7e;
+    /* Light Yellow */
+    --border-radius: 10px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* CSS Reset to ensure consistency across browsers */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    height: 100vh;
-    align-items: center;
 }
 
-.container {
-    width: 80%;
-    max-width: 600px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-#timer {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-#question-container {
-    text-align: center;
-}
-
-#question {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-#answer-buttons .btn {
-    display: block;
+/* Body and HTML default styles */
+body,
+html {
     width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-    background: lightblue;
-    cursor: pointer;
-    font-size: 1em;
+    height: 100%;
+    font-family: var(--font-primary);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-#answer-buttons .btn:hover {
-    background-color: deepskyblue;
-}
-
-.controls {
+/* Main quiz container styling */
+#quiz-container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    background: var(--container-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     text-align: center;
+}
+
+/* Question styling */
+#question-container>div {
+    font-size: 1.4em;
+    /* Larger font size for visibility */
+    font-weight: bold;
+    /* Make the question text bold */
+    background-color: var(--secondary-bg-color);
+    /* A light background for the question */
+    color: var(--primary-color);
+    /* Color of the question text */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Feedback container */
+.feedback {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    height: 50px;
+}
+
+/* Answer button grid */
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     margin-top: 20px;
 }
 
+/* Button styling */
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--container-bg-color);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: var(--box-shadow);
+}
+
+button:hover {
+    background-color: var(--primary-hover-color);
+    transform: translateY(-2px);
+}
+
+/* Utility class to hide elements */
 .hide {
     display: none;
 }
 
-#highscore-section {
+/* Highscores link styling */
+#highscores-link {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#highscores-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#highscores-link a:hover {
+    color: var(--primary-hover-color);
+}
+
+/* Timer styling */
+#timer {
+    font-size: 18px;
+}
+
+/* Highscores container and list styling */
+#highscores-container {
     text-align: center;
 }
 
-#highscore-form input {
+#highscore-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+#highscore-list li {
+    background-color: var(--secondary-bg-color);
     padding: 10px;
-    margin-right: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: var(--border-radius);
 }
 
-#highscore-form button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: lightgreen;
-}
-
-#highscore-form button:hover {
-    background-color: limegreen;
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    #quiz-container {
+        width: 95%;
+        margin: 30px auto;
+    }
 }
