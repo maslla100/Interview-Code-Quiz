@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz Challenge</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Coding Quiz Challenge</h1>
+            <div id="timer">Time: <span id="time">0</span></div>
+        </header>
+        <section id="quiz-section">
+            <div id="question-container" class="hide">
+                <div id="question">Question</div>
+                <div id="answer-buttons" class="btn-grid">
+                    <!-- Answer buttons will be generated here -->
+                </div>
+            </div>
+            <div class="controls">
+                <button id="start-btn">Start Quiz</button>
+                <button id="next-btn" class="hide">Next</button>
+            </div>
+        </section>
+        <section id="highscore-section" class="hide">
+            <h2>Your Score: <span id="final-score"></span></h2>
+            <form id="highscore-form">
+                <input type="text" id="initials" placeholder="Enter initials">
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+
+</html>

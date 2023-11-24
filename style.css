@@ -1,0 +1,88 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#question-container {
+    text-align: center;
+}
+
+#question {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#answer-buttons .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background: lightblue;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#answer-buttons .btn:hover {
+    background-color: deepskyblue;
+}
+
+.controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+#highscore-section {
+    text-align: center;
+}
+
+#highscore-form input {
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#highscore-form button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: lightgreen;
+}
+
+#highscore-form button:hover {
+    background-color: limegreen;
+}
