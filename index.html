@@ -4,37 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Test your coding knowledge with this interactive Coding Quiz Challenge.">
     <title>Coding Quiz Challenge</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div id="quiz-container">
-        <div id="highscores-link">
-            <a href="#" id="highscores">View Highscores</a>
-            <span id="timer">Time: <span id="time-left">0</span></span>
-        </div>
-        <h1>Coding Quiz Challenge</h1>
-        <div id="quiz-intro">
-            <p>Try to answer the following Coding Interview-related questions within the time limit.</p>
-            <p>Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-            <button id="start-btn">Start Quiz</button>
-        </div>
-        <div id="question-container" class="hide"></div>
-        <div id="feedback-container" class="feedback hide"></div>
-        <div id="end-screen" class="hide">
-            <h2>Your final score is <span id="final-score"></span>.</h2>
-            <input type="text" id="initials" placeholder="Enter initials" maxlength="3">
-            <button id="submit-score">Submit</button>
+        <!-- Highscores Link and Timer -->
+        <header>
+            <nav id="highscores-link">
+                <button id="highscores">View Highscores</button>
+                <span id="timer">Time: <span id="time-left">0</span></span>
+            </nav>
+            <h1>Coding Quiz Challenge</h1>
+        </header>
 
-        </div>
-        <div id="highscores-container" class="hide">
+        <!-- Main Quiz Content -->
+        <main>
+            <!-- Quiz Introduction -->
+            <section id="quiz-intro">
+                <p>Try to answer the following Coding Interview-related questions within the time limit.</p>
+                <p>Keep in mind that incorrect answers will penalize your score/time by five seconds!</p>
+                <button id="start-btn">Start Quiz</button>
+            </section>
+
+            <!-- Question Container -->
+            <div id="question-container" class="hide"></div>
+
+            <!-- Feedback Container -->
+            <div id="feedback-container" class="feedback hide"></div>
+
+            <!-- End Screen -->
+            <section id="end-screen" class="hide">
+                <p id="results"></p>
+                <h3>Your final score is <span id="final-score"></span>.</h3>
+                <input type="text" id="initials" placeholder="Enter initials" maxlength="3" aria-label="Enter initials">
+                <button id="submit-score">Submit</button>
+                <button id="restart-game" class="hide">Restart Game</button>
+
+            </section>
+
+            <!-- Missed Questions Review Section -->
+            <section id="missed-questions" class="hide">
+                <h2>Review Missed Questions</h2>
+                <ul id="missed-questions-list"></ul>
+                <button id="close-review">Close Review</button>
+                <button id="review-missed">Review Missed Questions</button>
+            </section>
+        </main>
+
+        <!-- Highscores Container -->
+        <aside id="highscores-container" class="hide">
             <h2>Highscores</h2>
             <ul id="highscore-list"></ul>
             <button id="clear-highscores">Clear highscores</button>
-            <button id="restart-game">Restart Game</button>
-
-        </div>
+            <button id="play-again-highscores">Play Again</button>
+            <button id="go-home">Go Home</button>
+        </aside>
     </div>
     <script src="script.js"></script>
 </body>
