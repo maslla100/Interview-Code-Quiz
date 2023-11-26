@@ -21,7 +21,7 @@ To use this project, open the index.html file in your browser. The page will dis
 
 The following image shows the web application's appearance and functionality:
 
-![The Code Quiz shows the following image".](./image.jpg)
+![The Code Quiz shows the following image".](/Assets/image.jpg)
 
 ## Code
 URL to code: https://github.com/maslla100/Interview-Code-Quiz
