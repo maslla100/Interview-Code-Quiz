@@ -16,14 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const highscoreList = document.getElementById('highscore-list');
     const playAgainHighscoresButton = document.getElementById('play-again-highscores');
     const GoHomeButton = document.getElementById('go-home')
+    const continueGameButton = document.getElementById('continue-game');
+
 
 
     startButton.addEventListener('click', startGame);
     submitScoreButton.addEventListener('click', saveHighscore);
-    highscoresLink.addEventListener('click', showHighscores);
     clearHighscoresButton.addEventListener('click', clearHighscores);
     playAgainHighscoresButton.addEventListener('click', resetAndStartGame);
     GoHomeButton.addEventListener('click', resetandGoHome);
+    continueGameButton.addEventListener('click', continueGame);
+    let isGameActive = false;
+    let isGamePaused = false
+    highscoresLink.addEventListener('click', () => {
+        if (isGameActive && !isGamePaused) {
+            if (confirm("Do you want to stop the current game and view the high scores?")) {
+                pauseGame();
+                showHighscores();
+            }
+        } else {
+            showHighscores();
+        }
+    });
+
+
 
 
     let shuffledQuestions, currentQuestionIndex, score, timerId;
@@ -31,6 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function startGame() {
+        isGameActive = true;
+        isGamePaused = false;
         document.getElementById('quiz-intro').classList.add('hide');
         startButton.classList.add('hide');
         shuffledQuestions = questions.sort(() => Math.random() - .5);
@@ -72,8 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function selectAnswer(answer) {
         const correct = answer.correct;
         if (!correct) {
-            timeLeft -= 5; // Penalty for incorrect answers
-            timeLeft = Math.max(timeLeft, 0); // Ensure time doesn't go below 0
+            timeLeft -= 5; // Time Penalty for incorrect answers
+            timeLeft = Math.max(timeLeft, 0);
             timerElement.textContent = timeLeft;
         } else {
             score++;
@@ -97,6 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function endGame() {
+        isGameActive = false;
+        isGamePaused = false;
+        continueGameButton.classList.add('hide');
         clearInterval(timerId);
         questionContainerElement.classList.add('hide');
         endScreenElement.classList.remove('hide');
@@ -156,6 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetGame() {
         // Your reset game logic
+        isGameActive = false;
+        isGamePaused = false;
+        continueGameButton.classList.add('hide');
         document.getElementById('highscores-container').classList.add('hide');
         document.getElementById('end-screen').classList.add('hide');
         questionContainerElement.classList.add('hide');
@@ -177,6 +201,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
+    function pauseGame() {
+        clearInterval(timerId);
+        if (isGameActive) {
+            continueGameButton.classList.remove('hide');
+            isGamePaused = true;
+        }
+
+    }
+
+    function continueGame() {
+        if (isGamePaused) {
+            continueGameButton.classList.add('hide');
+            questionContainerElement.classList.remove('hide');
+            highscoresContainer.classList.add('hide');
+            timerId = setInterval(updateTimer, 1000);
+            isGamePaused = false;
+        }
+    }
 
     // Questions array
     const questions = [
