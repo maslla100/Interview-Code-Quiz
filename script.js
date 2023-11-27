@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
     startButton.addEventListener('click', startGame);
     submitScoreButton.addEventListener('click', saveHighscore);
     clearHighscoresButton.addEventListener('click', clearHighscores);
@@ -36,14 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } else {
             showHighscores();
+            continueGameButton.classList.add('hide');
         }
     });
 
 
 
+    //Initially hide the continue game button!!!//
+    continueGameButton.classList.add('hide');
 
     let shuffledQuestions, currentQuestionIndex, score, timerId;
-    let timeLeft = 75; // 75 seconds for the quiz
+    let timeLeft = 75; // 75 seconds for the quiz, shrinking if it is too long!
 
 
     function startGame() {
