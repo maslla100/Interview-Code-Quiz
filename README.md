@@ -26,4 +26,4 @@ The following image shows the web application's appearance and functionality:
 ## Code
 URL to code: https://github.com/maslla100/Interview-Code-Quiz
 ## Interview Code Quiz Page
-URL to password generator app: https://maslla100.github.io/Interview-Code-Quiz/
+URL to app: https://maslla100.github.io/Interview-Code-Quiz/
